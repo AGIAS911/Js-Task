@@ -1,4 +1,4 @@
-/* ============================================================
+ /* ============================================================
    EXERCISE: MISSION CHECKLIST
    Build a working to-do app for the Space Explorer crew.
 
@@ -101,8 +101,10 @@ const clearBtn = document.getElementById("clear-done");
 function renderTasks() {
 
    taskList.innerHTML = "";
+
    if (tasks.length == 0) {
       emptyMsg.classList.remove("hidden");
+      updateCounter();
       return;
    }
 
@@ -111,29 +113,30 @@ function renderTasks() {
    tasks.forEach((task) => {
 
       const li = document.createElement("li");
+      const span = document.createElement("span");
       const btn = document.createElement("button");
 
       li.dataset.id = task.id;
-      btn.dataset.id = task.id;
 
-      li.textContent = task.text;
+      span.textContent = task.text;
+      span.classList.add("task-text");
+
+      btn.textContent = "Delete";
+      btn.classList.add("delete-btn");
 
       if (task.done) {
 
          li.classList.add("done");
 
-      } else {
-
-         li.classList.add("task-text");
-
-         btn.classList.add("delete-btn");
-         btn.textContent = "Delete";
-
-         li.appendChild(btn);
       }
+
+      li.appendChild(span);
+      li.appendChild(btn);
 
       taskList.appendChild(li);
    });
+
+   updateCounter();
 }
 
 
@@ -162,11 +165,15 @@ function renderTasks() {
 function updateCounter() {
 
    let remaindConut = 0;
+
    tasks.forEach((task) => {
+
       if (task.done === false) {
          remaindConut++;
       }
+
    });
+
    taskCounter.textContent = `${remaindConut} task(s) remaining`;
 
 }
@@ -192,18 +199,24 @@ function updateCounter() {
 
 
 inputTask.addEventListener("input", function (event) {
+
    event.preventDefault();
 
    inputCount.textContent = `${inputTask.value.length} / 50`;
 
 });
+
+
 formTask.addEventListener("submit", function (event) {
 
    event.preventDefault();
-   let textForm = inputTask.value.trim()
+
+   let textForm = inputTask.value.trim();
+
    if (textForm === "") {
       return;
    }
+
    tasks.push({
       done: false,
       id: nextId,
@@ -211,13 +224,17 @@ formTask.addEventListener("submit", function (event) {
    });
 
 
-   updateCounter();
    renderTasks();
+
    inputTask.value = "";
    inputCount.textContent = "0 / 50";
+
    nextId++;
+
    console.log(nextId);
+
 });
+
 
 
 
@@ -255,7 +272,51 @@ formTask.addEventListener("submit", function (event) {
    Delete removes the task, the counter updates every time.
    ============================================================ */
 
-// your code here
+taskList.addEventListener("click", function(event) {
+
+   const clicked = event.target;
+   const li = clicked.parentElement;
+   const id = Number(li.dataset.id);
+
+
+   if (clicked.classList.contains("task-text")) {
+
+      for (const task of tasks) {
+
+         if (task.id === id) {
+
+            task.done = !task.done;
+
+            break;
+         }
+
+      }
+
+      renderTasks();
+   }
+
+
+   if (clicked.classList.contains("delete-btn")) {
+
+      const newArray = [];
+
+      for (const task of tasks) {
+
+         if (task.id !== id) {
+            newArray.push(task);
+         }
+
+      }
+
+      tasks = newArray;
+
+      renderTasks();
+   }
+
+});
+
+
+
 
 
 /* ============================================================
@@ -268,7 +329,23 @@ formTask.addEventListener("submit", function (event) {
    both disappear. Delete everything and the empty message shows.
    ============================================================ */
 
-// your code here
+clearBtn.addEventListener("click", function() {
+
+   const newArray = [];
+
+   for (const task of tasks) {
+
+      if (!task.done) {
+         newArray.push(task);
+      }
+
+   }
+
+   tasks = newArray;
+
+   renderTasks();
+
+});
 
 
 /* ============================================================
@@ -298,4 +375,3 @@ formTask.addEventListener("submit", function (event) {
 
 
 renderTasks();
-updateCounter();
