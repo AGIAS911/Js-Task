@@ -1,31 +1,31 @@
- /* ============================================================
-   EXERCISE: MISSION CHECKLIST
-   Build a working to-do app for the Space Explorer crew.
+/* ============================================================
+  EXERCISE: MISSION CHECKLIST
+  Build a working to-do app for the Space Explorer crew.
 
-   WHAT THE FINISHED APP DOES:
-   1. Shows the starting tasks from the data below
-   2. Adds a new task when the form is submitted
-   3. Marks a task as done (or not done) when you click its text
-   4. Deletes a task when you click its Delete button
-   5. Shows how many tasks are still remaining
-   6. Shows a message when the list is completely empty
-   7. Clears all completed tasks with one button
+  WHAT THE FINISHED APP DOES:
+  1. Shows the starting tasks from the data below
+  2. Adds a new task when the form is submitted
+  3. Marks a task as done (or not done) when you click its text
+  4. Deletes a task when you click its Delete button
+  5. Shows how many tasks are still remaining
+  6. Shows a message when the list is completely empty
+  7. Clears all completed tasks with one button
 
-   WHAT YOU WILL PRACTICE:
-   objects and arrays of objects, loops, functions, selecting
-   elements, createElement, appendChild, classList, dataset,
-   addEventListener, event.target, and preventDefault.
+  WHAT YOU WILL PRACTICE:
+  objects and arrays of objects, loops, functions, selecting
+  elements, createElement, appendChild, classList, dataset,
+  addEventListener, event.target, and preventDefault.
 
-   HOW TO WORK:
-   Go step by step, in order. Each step has a TODO, some hints,
-   and a CHECKPOINT. Do not move on until the checkpoint works.
-   Keep the browser console open (F12) to catch errors early.
+  HOW TO WORK:
+  Go step by step, in order. Each step has a TODO, some hints,
+  and a CHECKPOINT. Do not move on until the checkpoint works.
+  Keep the browser console open (F12) to catch errors early.
 
-   THE BIG IDEA:
-   The tasks ARRAY is the single source of truth. We never edit
-   the list on the page directly. Instead we:
-   change the array  ->  call renderTasks()  ->  page redraws
-   ============================================================ */
+  THE BIG IDEA:
+  The tasks ARRAY is the single source of truth. We never edit
+  the list on the page directly. Instead we:
+  change the array  ->  call renderTasks()  ->  page redraws
+  ============================================================ */
 
 
 /* ===== THE DATA (given) =====
@@ -127,13 +127,17 @@ function renderTasks() {
       if (task.done) {
 
          li.classList.add("done");
+         li.appendChild(span);
+         taskList.appendChild(li);
 
       }
+      else {
+         li.appendChild(span);
+         li.appendChild(btn);
 
-      li.appendChild(span);
-      li.appendChild(btn);
+         taskList.appendChild(li);
+      }
 
-      taskList.appendChild(li);
    });
 
    updateCounter();
@@ -272,7 +276,7 @@ formTask.addEventListener("submit", function (event) {
    Delete removes the task, the counter updates every time.
    ============================================================ */
 
-taskList.addEventListener("click", function(event) {
+taskList.addEventListener("click", function (event) {
 
    const clicked = event.target;
    const li = clicked.parentElement;
@@ -329,7 +333,7 @@ taskList.addEventListener("click", function(event) {
    both disappear. Delete everything and the empty message shows.
    ============================================================ */
 
-clearBtn.addEventListener("click", function() {
+clearBtn.addEventListener("click", function () {
 
    const newArray = [];
 
