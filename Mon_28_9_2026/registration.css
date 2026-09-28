@@ -1,0 +1,146 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg-color: #FCF1D0;
+    --bg-form: #0D1C42;
+    --primary-color: #010736;
+    --secondary-color: #22396F;
+    --white: #ffffff;
+}
+
+body {
+    background-color: var(--bg-form);
+    font-family: "Google Sans", Arial, sans-serif;
+    font-size: 14px;
+    color: var(--primary-color);
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    width: 100%;
+    padding: 20px;
+}
+
+.reg-form {
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--bg-color);
+
+    width: 100%;
+    max-width: 400px;
+
+    margin: 0 auto;
+
+    padding: 35px;
+
+    border-radius: 12px;
+
+    border: 1px solid var(--secondary-color);
+
+    box-shadow: 0 10px 30px rgba(1, 7, 54, 0.5);
+}
+
+.reg-form label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--primary-color);
+
+    font-weight: bold;
+}
+
+.reg-form input {
+    width: 100%;
+
+    padding: 12px 15px;
+
+    margin-bottom: 18px;
+
+    background-color: var(--white);
+
+    border: 1px solid var(--secondary-color);
+
+    border-radius: 6px;
+
+    color: var(--primary-color);
+
+    font-size: 15px;
+}
+
+.reg-form input::placeholder {
+    color: #888888;
+}
+
+.reg-form input:focus {
+    outline: none;
+
+    border-color: var(--primary-color);
+
+    box-shadow: 0 0 5px rgba(1, 7, 54, 0.3);
+}
+
+.reg-form button {
+    width: 100%;
+
+    margin-top: 5px;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background-color: var(--primary-color);
+
+    color: var(--bg-color);
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: background-color 0.2s;
+}
+
+.reg-form button:hover {
+    background-color: var(--secondary-color);
+}
+
+main > p {
+    max-width: 400px;
+
+    margin: 20px auto 0;
+
+    text-align: center;
+
+    color: var(--bg-color);
+
+    font-size: 14px;
+}
+
+main > p a {
+    color: var(--bg-color);
+
+    font-weight: bold;
+
+    text-decoration: none;
+}
+
+main > p a:hover {
+    text-decoration: underline;
+}

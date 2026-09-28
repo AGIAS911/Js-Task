@@ -1,0 +1,164 @@
+```css
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #0D1C42;
+    min-height: 100vh;
+    color: #010736;
+}
+
+.admin-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.admin-header {
+    background-color: #FCF1D0;
+    padding: 25px 30px;
+    border-radius: 12px;
+    border: 1px solid #22396F;
+    box-shadow: 0 10px 30px rgba(1, 7, 54, 0.5);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+.admin-header h1 {
+    color: #010736;
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.admin-header p {
+    color: #22396F;
+    font-size: 14px;
+}
+
+#logout-btn {
+    padding: 11px 22px;
+
+    background-color: #010736;
+    color: #FCF1D0;
+
+    border: none;
+    border-radius: 6px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: background-color 0.2s;
+}
+
+#logout-btn:hover {
+    background-color: #22396F;
+}
+
+.users-section {
+    background-color: #FCF1D0;
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+    border: 1px solid #22396F;
+
+    box-shadow: 0 10px 30px rgba(1, 7, 54, 0.5);
+}
+
+.users-section h2 {
+    color: #010736;
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+#users-list {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.user-card {
+    background-color: #ffffff;
+
+    border: 1px solid #22396F;
+
+    border-radius: 8px;
+
+    padding: 20px;
+
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.user-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 5px 15px rgba(1, 7, 54, 0.2);
+}
+
+.user-card h3 {
+    color: #010736;
+
+    font-size: 18px;
+
+    margin-bottom: 15px;
+}
+
+.user-card p {
+    color: #22396F;
+
+    font-size: 14px;
+
+    margin-bottom: 8px;
+}
+
+.user-card p:last-child {
+    margin-bottom: 0;
+}
+
+.user-card strong {
+    color: #010736;
+}
+
+@media (max-width: 700px) {
+
+    .admin-container {
+        padding: 20px 15px;
+    }
+
+    .admin-header {
+        padding: 20px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+    }
+
+    #logout-btn {
+        width: 100%;
+    }
+
+    .users-section {
+        padding: 20px;
+    }
+
+    #users-list {
+        grid-template-columns: 1fr;
+    }
+}
+```
