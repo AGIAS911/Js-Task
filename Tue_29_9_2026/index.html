@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System</title>
+</head>
+<body onload="reload()">
+    
+
+<div class="container">
+    <h1>Employee Management System</h1>
+
+    <form id="empLogin">
+        <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" name="fullName" id="fullName" placeholder="e.g. John Doe" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="e.g. john@example.com" required>
+        </div>
+
+        <div class="form-group">
+            <label for="dep">Department</label>
+            <input type="text" name="dep" id="dep" placeholder="e.g. IT" required>
+        </div>
+
+        <input type="submit" value="Add Employee">
+    </form>
+
+    <h2>Employee List</h2>
+    <table border="2">
+        <thead>
+            <tr>
+                <th>Employee Name</th>
+                <th>Email</th>
+                <th>Department</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody id="employeeTableBody">
+         
+        </tbody>
+    </table>
+
+    <div class="total-container">
+        Total Salary: $<span id="totalSalary">0</span>
+    </div>
+</div>
+
+
+
+    <script src="./script.js"> </script>
+</body>
+</html>
